@@ -26,5 +26,4 @@ Route::get('/', function () {
 });
 */
 
-Route::get('/events/{event}', 'EventController@show');
-Route::post('/events', 'EventController@store');
+Route::resource('/v1/events', 'EventController')->only([ 'index', 'show', 'store']);

@@ -9,6 +9,11 @@ use App\Event;
 
 class EventController extends Controller
 {
+    public function index()
+    {
+        return Event::simplePaginate(10);
+    }
+
     public function show($event)
     {
         if(strlen($event) >= 2)
@@ -21,14 +26,16 @@ class EventController extends Controller
     {
         try {
             $validator = Validator::make($request->all(), [
+                'user' => 'required',
                 'event' => 'required|max:255',
                 'timestamp' => 'required|date',
             ]);
-            
+     
             if ($validator->fails())
-                return response($validator, 400);
+                return response($validator->errors(), 400);
             
             $event = new Event;
+            $event->user = $request->user;
             $event->event = $request->event;
             $event->timestamp = $request->timestamp;
             $event->save();
