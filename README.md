@@ -72,3 +72,7 @@ ng serve -o
     'event' : 'evento',
     'timestamp' : 'data e hora do evento'
 }
+
+
+## Demonstração ##
+> Uma demosntração da funcionalidade pode ser vista em http://dito.freelagile.com/
