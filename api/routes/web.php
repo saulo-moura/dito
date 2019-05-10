@@ -11,19 +11,4 @@
 |
 */
 
-/*
-Route::get('/', function () {
-    try {
-        DB::connection()->getPdo();
-        if(DB::connection()->getDatabaseName()){
-            echo "Yes! Successfully connected to the DB: " . DB::connection()->getDatabaseName();
-        }else{
-            die("Could not find the database. Please check your configuration.");
-        }
-    } catch (\Exception $e) {
-        die($e->getMessage() . " - Could not open connection to database server.  Please check your configuration.");
-    }
-});
-*/
-
 Route::resource('/v1/events', 'EventController')->only([ 'index', 'show', 'store']);

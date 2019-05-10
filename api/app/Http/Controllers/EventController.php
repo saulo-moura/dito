@@ -37,7 +37,7 @@ class EventController extends Controller
             $event = new Event;
             $event->user = $request->user;
             $event->event = $request->event;
-            $event->timestamp = $request->timestamp;
+            $event->timestamp = Carbon::parse($request->timestamp)->format('Y-m-d H:i:s');
             $event->save();
     
             return response($event, 201);
